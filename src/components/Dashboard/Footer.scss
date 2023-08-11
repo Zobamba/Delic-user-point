@@ -1,277 +1,267 @@
-footer {
-    padding: 3.125rem 0 0 0;
-    background: url("../../assets/img/contact-bg.png") no-repeat;
-    background-position: 60% 0%;
-    background-size: cover;
+.ftr {
+  padding: 3.125rem 0 0 0;
+  background: url("../../assets/img/contact-bg.png") no-repeat;
+  background-position: 60% 0%;
+  background-size: cover;
 
-    @media print,
-    screen and (min-width: 40em) {
-        background-position: right center
+  @media print, screen and (min-width: 40em) {
+    background-position: right center;
+  }
+
+  .footer-content {
+    text-align: center;
+
+    @media print, screen and (min-width: 64em) {
+      width: calc(50% - 1.875rem);
+      margin-right: 0.9375rem;
+      margin-left: 0.9375rem;
+      margin-left: calc(50% + 0.625rem);
     }
 
-    .footer-content {
+    @media screen and (min-width: 64em) and (orientation: portrait) {
+      width: calc(50%);
+      margin-left: calc(33.33333% + 0.625rem);
+    }
+
+    @media screen and (min-width: 64em) and (max-width: 74.9375em) and (orientation: landscape) {
+      width: calc(50%);
+      margin-left: calc(33.33333% + 0.625rem);
+    }
+
+    h3 {
+      text-transform: uppercase;
+    }
+
+    .contact-info {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+
+      .info-address,
+      .reservations {
         text-align: center;
+        margin: 0 auto;
 
-        @media print,
-        screen and (min-width: 64em) {
-            width: calc(50% - 1.875rem);
-            margin-right: .9375rem;
-            margin-left: .9375rem;
-            margin-left: calc(50% + .625rem)
+        @media print, screen and (min-width: 40em) {
+          text-align: left;
         }
 
-        @media screen and (min-width: 64em) and (orientation: portrait) {
-            width: calc(50%);
-            margin-left: calc(33.33333% + .625rem)
-        }
-
-        @media screen and (min-width: 64em) and (max-width: 74.9375em) and (orientation: landscape) {
-            width: calc(50%);
-            margin-left: calc(33.33333% + .625rem)
+        @media print, screen and (min-width: 64em) {
+          width: calc(50% - 1.875rem);
+          margin-right: 0.9375rem;
+          margin-left: 0.9375rem;
         }
 
         h3 {
-            text-transform: uppercase
+          font-weight: 600;
         }
+      }
 
-        .contact-info {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-
-            .info-address,
-            .reservations {
-                text-align: center;
-                margin: 0 auto;
-
-                @media print,
-                screen and (min-width: 40em) {
-                    text-align: left
-                }
-
-                @media print,
-                screen and (min-width: 64em) {
-                    width: calc(50% - 1.875rem);
-                    margin-right: .9375rem;
-                    margin-left: .9375rem
-                }
-
-                h3 {
-                    font-weight: 600
-                }
-            }
-
-            .reservations {
-                text-align: center;
-
-                @media print,
-                screen and (min-width: 40em) {
-                    text-align: right
-                }
-            }
-        }
-
-        .contact-form {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-            margin-top: 3.125rem;
-            text-align: left;
-
-            @media screen and (max-width: 63.9375em) {
-                width: calc(83.33333% - 1.875rem);
-                margin-right: .9375rem;
-                margin-left: .9375rem;
-                margin-left: calc(8.33333% + .625rem)
-            }
-
-            h3 {
-                -ms-flex: 0 0 auto;
-                flex: 0 0 auto;
-                min-height: 0px;
-                min-width: 0px;
-                width: calc(100% - 1.875rem);
-                margin-right: .9375rem;
-                margin-left: .9375rem;
-                font-weight: 600
-            }
-
-            form {
-                margin-top: 1.25rem;
-                display: -ms-flexbox;
-                display: flex;
-                -ms-flex-flow: row wrap;
-                flex-flow: row wrap;
-
-                input,
-                textarea {
-                    &::-webkit-input-placeholder {
-                        color: #3c3c3c;
-                        font-style: italic
-                    }
-
-                    &::-moz-placeholder {
-                        color: #3c3c3c;
-                        font-style: italic
-                    }
-
-                    &:-ms-input-placeholder {
-                        color: #3c3c3c;
-                        font-style: italic
-                    }
-
-                    &:-moz-placeholder {
-                        color: #3c3c3c;
-                        font-style: italic
-                    }
-                }
-                
-                input {
-                    margin-bottom: 3.125rem;
-                    background-color: transparent;
-                    box-shadow: none;
-                    border: none;
-                    border-bottom: 1px solid #3c3c3c;
-
-                    @media print,
-                    screen and (min-width: 40em) {
-                        width: calc(50% - 1.875rem);
-                        margin-right: .9375rem;
-                        margin-left: .9375rem
-                    }
-                }
-
-                textarea {
-                    background-color: transparent;
-                    box-shadow: none;
-                    border: none;
-                    border-bottom: 1px solid #3c3c3c;
-                    height: 3.125rem !important;
-                    max-height: 3.125rem !important;
-                    overflow: hidden !important;
-                    resize: none;
-
-                    @media print,
-                    screen and (min-width: 40em) {
-                        -ms-flex: 0 0 auto;
-                        flex: 0 0 auto;
-                        min-height: 0px;
-                        min-width: 0px;
-                        width: calc(100% - 1.875rem);
-                        margin-right: .9375rem;
-                        margin-left: .9375rem
-                    }
-                }
-
-                .send-form {
-                    position: relative;
-                    margin: 3.125rem auto;
-                    border: 1px solid #3c3c3c;
-                    padding: .9375rem 1.875rem;
-                    transition: 0.19s ease-in;
-                    -o-transition: 0.19s ease-in;
-                    -ms-transition: 0.19s ease-in;
-                    -moz-transition: 0.19s ease-in;
-                    -webkit-transition: 0.19s ease-in;
-                    outline: 0;
-                    overflow: hidden;
-                    background: none;
-                    z-index: 1;
-                    cursor: pointer;
-
-                    &:hover {
-                        color: #fff;
-                        font-weight: bold
-                    }
-
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        background: #3c3c3c;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 100%;
-                        z-index: -1;
-                        -webkit-transition: bottom 0.2s ease-in
-                    }
-
-                    &:hover:before {
-                        bottom: 0
-                    }
-                }
-            }
-        }
-
-        .social-icons {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-            -ms-flex-pack: center;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-
-            @media print,
-            screen and (min-width: 64em) {
-                -ms-flex-pack: end;
-                justify-content: flex-end
-            }
-
-            @media screen and (min-width: 64em) and (orientation: portrait) {
-                -ms-flex-pack: center;
-                justify-content: center
-            }
-
-            .fb-i,
-            .insta-i {
-                position: relative;
-                width: 3.125rem;
-                height: 3.125rem;
-                margin: .625rem;
-                padding: .625rem;
-                border: 1px solid #3c3c3c;
-                transition: 0.19s ease-in;
-                -o-transition: 0.19s ease-in;
-                -ms-transition: 0.19s ease-in;
-                -moz-transition: 0.19s ease-in;
-                -webkit-transition: 0.19s ease-in;
-                outline: 0;
-                overflow: hidden;
-                background: none;
-                z-index: 1;
-                cursor: pointer;
-
-                &:before {
-                    content: "";
-                    position: absolute;
-                    background: #3c3c3c;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 100%;
-                    z-index: -1;
-                    -webkit-transition: bottom 0.2s ease-in
-                }
-
-                &:hover:before {
-                    bottom: 0
-                }
-            }
-        }
-    }
-
-    .copy-info {
+      .reservations {
         text-align: center;
 
-        @media screen and (min-width: 64em) and (orientation: portrait) {
-            padding-left: 15%
+        @media print, screen and (min-width: 40em) {
+          text-align: right;
+        }
+      }
+    }
+
+    .contact-form {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+      margin-top: 3.125rem;
+      text-align: left;
+
+      @media screen and (max-width: 63.9375em) {
+        width: calc(83.33333% - 1.875rem);
+        margin-right: 0.9375rem;
+        margin-left: 0.9375rem;
+        margin-left: calc(8.33333% + 0.625rem);
+      }
+
+      h3 {
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        min-height: 0px;
+        min-width: 0px;
+        width: calc(100% - 1.875rem);
+        margin-right: 0.9375rem;
+        margin-left: 0.9375rem;
+        font-weight: 600;
+      }
+
+      form {
+        margin-top: 1.25rem;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+
+        input,
+        textarea {
+          &::-webkit-input-placeholder {
+            color: #3c3c3c;
+            font-style: italic;
+          }
+
+          &::-moz-placeholder {
+            color: #3c3c3c;
+            font-style: italic;
+          }
+
+          &:-ms-input-placeholder {
+            color: #3c3c3c;
+            font-style: italic;
+          }
+
+          &:-moz-placeholder {
+            color: #3c3c3c;
+            font-style: italic;
+          }
         }
 
-        @media screen and (min-width: 64em) and (max-width: 74.9375em) and (orientation: landscape) {
-            padding-left: 15%
+        input {
+          margin-bottom: 3.125rem;
+          background-color: transparent;
+          box-shadow: none;
+          border: none;
+          border-bottom: 1px solid #3c3c3c;
+
+          @media print, screen and (min-width: 40em) {
+            width: calc(50% - 1.875rem);
+            margin-right: 0.9375rem;
+            margin-left: 0.9375rem;
+          }
         }
+
+        textarea {
+          background-color: transparent;
+          box-shadow: none;
+          border: none;
+          border-bottom: 1px solid #3c3c3c;
+          height: 3.125rem !important;
+          max-height: 3.125rem !important;
+          overflow: hidden !important;
+          resize: none;
+
+          @media print, screen and (min-width: 40em) {
+            -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+            min-height: 0px;
+            min-width: 0px;
+            width: calc(100% - 1.875rem);
+            margin-right: 0.9375rem;
+            margin-left: 0.9375rem;
+          }
+        }
+
+        .send-form {
+          position: relative;
+          margin: 3.125rem auto;
+          border: 1px solid #3c3c3c;
+          padding: 0.9375rem 1.875rem;
+          transition: 0.19s ease-in;
+          -o-transition: 0.19s ease-in;
+          -ms-transition: 0.19s ease-in;
+          -moz-transition: 0.19s ease-in;
+          -webkit-transition: 0.19s ease-in;
+          outline: 0;
+          overflow: hidden;
+          background: none;
+          z-index: 1;
+          cursor: pointer;
+
+          &:hover {
+            color: #fff;
+            font-weight: bold;
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            background: #3c3c3c;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 100%;
+            z-index: -1;
+          }
+
+          &:hover:before {
+            bottom: 0;
+          }
+        }
+      }
     }
+
+    .social-icons {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+
+      @media print, screen and (min-width: 64em) {
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+      }
+
+      @media screen and (min-width: 64em) and (orientation: portrait) {
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+
+      .fb-i,
+      .insta-i {
+        position: relative;
+        width: 3.125rem;
+        height: 3.125rem;
+        margin: 0.625rem;
+        padding: 0.625rem;
+        border: 1px solid #3c3c3c;
+        transition: 0.19s ease-in;
+        -o-transition: 0.19s ease-in;
+        -ms-transition: 0.19s ease-in;
+        -moz-transition: 0.19s ease-in;
+        -webkit-transition: 0.19s ease-in;
+        outline: 0;
+        overflow: hidden;
+        background: none;
+        z-index: 1;
+        cursor: pointer;
+
+        &:before {
+          content: "";
+          position: absolute;
+          background: #3c3c3c;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 100%;
+          z-index: -1;
+        }
+
+        &:hover:before {
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  .copy-info {
+    text-align: center;
+
+    @media screen and (min-width: 64em) and (orientation: portrait) {
+      padding-left: 15%;
+    }
+
+    @media screen and (min-width: 64em) and (max-width: 74.9375em) and (orientation: landscape) {
+      padding-left: 15%;
+    }
+  }
 }
