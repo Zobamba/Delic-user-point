@@ -14,7 +14,6 @@ const CategoryIcons = () => (
           <p className="scroll-reveal" data-distance="0" data-duration="500">
             Turnip greens yarrow ricebean rutabaga endive
             cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage.
-
           </p>
         </div>
         <div className="icon">
@@ -23,7 +22,6 @@ const CategoryIcons = () => (
           <p className="scroll-reveal" data-distance="0" data-duration="700">
             Nori grape silver beet broccoli kombu beet
             greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek.
-
           </p>
         </div>
         <div className="icon">

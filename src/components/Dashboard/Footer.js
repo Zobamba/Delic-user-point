@@ -8,7 +8,7 @@ import { ReactComponent as Fb } from '../../assets/fb.svg';
 import './Footer.scss';
 
 const Footer = ({ footerRef }) => (
-  <footer id="contact-us" ref={footerRef}>
+  <footer className="ftr" id="contact-us" ref={footerRef}>
     <div className="container">
       <div className="footer-content">
         <h1 className="header-txt scroll-reveal">Contact</h1>
@@ -17,19 +17,19 @@ const Footer = ({ footerRef }) => (
         </div>
         <div className="contact-info scroll-reveal">
           <div className="info-address">
-            <h3>Veggie</h3>
+            <h3>Delic</h3>
             <p>
-              3428 Magnolia Avenue
+              3428 Chime Avenue
               <br />
-              Hackettstown, NJ 07840
+              Okpanam, DS 07840
             </p>
           </div>
           <div className="reservations">
             <h3>Reservations</h3>
             <p>
-              reservations@vegggie.com
+              reservations@delic.com
               <br />
-              +48 202-555-0114
+              +234 81-6473-8466
             </p>
           </div>
         </div>
@@ -51,7 +51,7 @@ const Footer = ({ footerRef }) => (
           </div>
         </div>
       </div>
-      <p className="copy-info">Copyright 2017 © by Anna Dadej</p>
+      <p className="copy-info">Copyright 2023 © by Onah Zoba</p>
     </div>
   </footer>
 );

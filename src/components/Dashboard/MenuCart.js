@@ -1,14 +1,71 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/role-supports-aria-props */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import axios from '../../api/axios';
 import { ReactComponent as Slider } from '../../assets/slider.svg';
+import Modal from './Modal'
 import './MenuCart.scss';
 
 const MenuCart = ({ menuCartRef }) => {
   const [currentTab, setCurrentTab] = useState('starters');
+  const [starters, setStarters] = useState();
+  const [mainDishes, setMainDishes] = useState();
+  const [desserts, setDesserts] = useState();
+  const [drinks, setDrinks] = useState();
+  const [swallows, setSwallows] = useState();
+  const [modalOpen, setModalOpen] = useState();
+
+  useEffect(() => {
+    const getStarters = async () => {
+      try {
+        const response = await axios.get('/menusMeals?category=starters');
+        setStarters(response.data.mealRecords);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    const getMainDishes = async () => {
+      try {
+        const response = await axios.get('/menusMeals?category=main dishes');
+        setMainDishes(response.data.mealRecords);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    const getDesserts = async () => {
+      try {
+        const response = await axios.get('/menusMeals?category=desserts');
+        setDesserts(response.data.mealRecords);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    const getDrinks = async () => {
+      try {
+        const response = await axios.get('/menusMeals?category=drinks');
+        setDrinks(response.data.mealRecords);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    const getSwallows = async () => {
+      try {
+        const response = await axios.get('/menusMeals?category=swallows');
+        setSwallows(response.data.mealRecords);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getStarters();
+    getMainDishes();
+    getDesserts();
+    getDrinks();
+    getSwallows();
+  }, []);
 
   return (
     <section className="menu-cart scroll-reveal" ref={menuCartRef}>
@@ -42,6 +99,16 @@ const MenuCart = ({ menuCartRef }) => {
           <li className="tabs-title">
             <a
               className="m-anim"
+              data-text="Swallows"
+              aria-selected={currentTab === 'swallows'}
+              onClick={() => setCurrentTab('swallows')}
+            >
+              Swallows
+            </a>
+          </li>
+          <li className="tabs-title">
+            <a
+              className="m-anim"
               aria-selected={currentTab === 'desserts'}
               data-text="Desserts"
               onClick={() => setCurrentTab('desserts')}
@@ -62,283 +129,241 @@ const MenuCart = ({ menuCartRef }) => {
         </ul>
 
         <div className="tabs-content" data-tabs-content="example-tabs">
-          <div className={`tabs-panel ${currentTab === 'starters' ? 'is-active' : ''}`}>
-            <div className="menu-content">
-              <div className="menu-section">
-                <table>
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                  <tr>
-                    <td><span>SAMPHIRE FRITTERS WITH FENNEL CEVICHE </span></td>
-                    <td><span>$19</span></td>
-                  </tr>
-                  <tr>
-                    <td>fresh samphire, plain flour, cornflower, eggs, fennel</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$13</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$11</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$16</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                </table>
-              </div>
-              <div className="menu-section">
-                <table>
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                  <tr>
-                    <td><span>SAMPHIRE FRITTERS WITH FENNEL CEVICHE </span></td>
-                    <td><span>$19</span></td>
-                  </tr>
-                  <tr>
-                    <td>fresh samphire, plain flour, cornflower, eggs, fennel</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$13</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$11</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$16</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                </table>
-              </div>
+          {modalOpen &&
+            <Modal
+              setModalOpen={setModalOpen}
+              selectedMeal={modalOpen}
+            />}
+
+          {starters &&
+            <div className={`tabs-panel ${currentTab === 'starters' ? 'is-active' : ''}`}>
+              {starters.map((starter, i) => {
+                return (
+                  <div className="menu-content" key={i}>
+                    <div className="image">
+                      <img
+                        title={starter.name}
+                        src={starter.imageUrl}
+                        alt={starter.name}
+                        onClick={() => {
+                          setModalOpen(starter);
+                        }} />
+                    </div>
+                    <div className="menu-section">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td><span>{starter.name}</span></td>
+                            <td>
+                              <span>
+                                &#8358;{(starter.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>{starter.description}
+                              <br />
+                              <button
+                                onClick={() => {
+                                  setModalOpen(starter);
+                                }}
+                              >
+                                Open
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
-          </div>
+          }
 
-          <div className={`tabs-panel ${currentTab === 'main-dishes' ? 'is-active' : ''}`}>
-            <div className="menu-content">
-              <div className="menu-section">
-                <table>
-                  <tr>
-                    <td><span>SAMPHIRE FRITTERS WITH FENNEL CEVICHE </span></td>
-                    <td><span>$19</span></td>
-                  </tr>
-                  <tr>
-                    <td>fresh samphire, plain flour, cornflower, eggs, fennel</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$13</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$11</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$16</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                </table>
-              </div>
-              <div className="menu-section">
-                <table>
-                  <tr>
-                    <td><span>SAMPHIRE FRITTERS WITH FENNEL CEVICHE </span></td>
-                    <td><span>$19</span></td>
-                  </tr>
-                  <tr>
-                    <td>fresh samphire, plain flour, cornflower, eggs, fennel</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$13</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$11</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$16</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                </table>
-              </div>
+          {mainDishes &&
+            <div className={`tabs-panel ${currentTab === 'main-dishes' ? 'is-active' : ''}`}>
+              {mainDishes.map((mainDish, i) => {
+                return (
+                  <div className="menu-content" key={i}>
+                    <div className="image">
+                      <img
+                        title={mainDish.name}
+                        src={mainDish.imageUrl}
+                        alt={mainDish.name}
+                        onClick={() => {
+                          setModalOpen(mainDish);
+                        }} />
+                    </div>
+                    <div className="menu-section">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td><span>{mainDish.name}</span></td>
+                            <td>
+                              <span>
+                                &#8358;{(mainDish.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>{mainDish.description}
+                              <br />
+                              <button
+                                onClick={() => {
+                                  setModalOpen(mainDish);
+                                }}
+                              >
+                                Open
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
-          </div>
+          }
 
-          <div className={`tabs-panel ${currentTab === 'desserts' ? 'is-active' : ''}`}>
-            <div className="menu-content">
-              <div className="menu-section">
-                <table>
-
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$11</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>COURGETTE FLOWERS</span></td>
-                    <td><span>$16</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                </table>
-              </div>
-              <div className="menu-section">
-                <table>
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                  <tr>
-                    <td><span>PAN FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$11</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>FRIED COURGETTE FLOWERS</span></td>
-                    <td><span>$16</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                </table>
-              </div>
+          {swallows &&
+            <div className={`tabs-panel ${currentTab === 'swallows' ? 'is-active' : ''}`}>
+              {swallows.map((swallow, i) => {
+                return (
+                  <div className="menu-content" key={i}>
+                    <div className="image">
+                      <img
+                        title={swallow.name}
+                        src={swallow.imageUrl}
+                        alt={swallow.name}
+                        onClick={() => {
+                          setModalOpen(swallow);
+                        }} />
+                    </div>
+                    <div className="menu-section">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td><span>{swallow.name}</span></td>
+                            <td>
+                              <span>
+                                &#8358;{(swallow.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>{swallow.description}
+                              <br />
+                              <button
+                                onClick={() => {
+                                  setModalOpen(swallow);
+                                }}
+                              >
+                                Open
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
-          </div>
+          }
 
-          <div className={`tabs-panel ${currentTab === 'drinks' ? 'is-active' : ''}`}>
-            <div className="menu-content">
-              <div className="menu-section">
-                <table>
-                  <tr>
-                    <td><span>COURGETTE FLOWERS</span></td>
-                    <td><span>$11</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                </table>
-              </div>
-              <div className="menu-section">
-                <table>
-                  <tr>
-                    <td><span>COURGETTE FLOWERS</span></td>
-                    <td><span>$11</span></td>
-                  </tr>
-                  <tr>
-                    <td>courgette flowers, goats cheese, red onion, pine nuts</td>
-                  </tr>
-                  <tr>
-                    <td><span>SMOKED RICOTTA TERRINE</span></td>
-                    <td><span>$12</span></td>
-                  </tr>
-                  <tr>
-                    <td>ricotta, shallots, cheddar, capers</td>
-                  </tr>
-                </table>
-              </div>
+          {desserts &&
+            <div className={`tabs-panel ${currentTab === 'desserts' ? 'is-active' : ''}`}>
+              {desserts.map((dessert, i) => {
+                return (
+                  <div className="menu-content" key={i}>
+                    <div className="image">
+                      <img
+                        title={dessert.name}
+                        src={dessert.imageUrl}
+                        alt={dessert.name}
+                        onClick={() => {
+                          setModalOpen(dessert);
+                        }} />
+                    </div>
+                    <div className="menu-section">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td><span>{dessert.name}</span></td>
+                            <td>
+                              <span>
+                                &#8358;{(dessert.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>{dessert.description}
+                              <br />
+                              <button
+                                onClick={() => {
+                                  setModalOpen(dessert);
+                                }}
+                              >
+                                Open
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
-          </div>
+          }
 
+          {drinks &&
+            <div className={`tabs-panel ${currentTab === 'drinks' ? 'is-active' : ''}`}>
+              {drinks.map((drink, i) => {
+                return (
+                  <div className="menu-content" key={i}>
+                    <div className="image">
+                      <img
+                        title={drink.name}
+                        src={drink.imageUrl}
+                        alt={drink.name}
+                        onClick={() => {
+                          setModalOpen(drink);
+                        }} />
+                    </div>
+                    <div className="menu-section">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td><span>{drink.name}</span></td>
+                            <td>
+                              <span>
+                                &#8358;{(drink.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>{drink.description}
+                              <br />
+                              <button
+                                onClick={() => {
+                                  setModalOpen(drink);
+                                }}
+                              >
+                                Open
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          }
         </div>
       </div>
     </section>
