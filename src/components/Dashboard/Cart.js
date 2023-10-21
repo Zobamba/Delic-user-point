@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus, faMinus, faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import CartContext from '../../context/CartContext';
+import UserContext from '../../context/UserContext';
 import RemoveModal from './RemoveModal';
 import './Cart.scss';
 
@@ -11,7 +11,7 @@ const Cart = ({ menuCartRef }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [item, setItem] = useState();
 
-  const value = useContext(CartContext);
+  const value = useContext(UserContext);
   const cartItems = value.mealsInCart;
   const setCartItems = value.setMealsInCart;
 
@@ -21,6 +21,12 @@ const Cart = ({ menuCartRef }) => {
 
   cartItems.forEach((item) => {
     totalPrice = (item.price * item.units) + totalPrice;
+  });
+
+  let quantity = 0;
+
+  cartItems.forEach((item) => {
+    quantity = (item.units) + quantity;
   });
 
   const increaseUnits = (e, id) => {
@@ -82,7 +88,7 @@ const Cart = ({ menuCartRef }) => {
           <div className="cart-items">
             <article className="atc">
               <header>
-                <h2>Cart ({cartItems.length})</h2>
+                <h2>Cart ({quantity})</h2>
               </header>
               {cartItems.map((item, i) => {
                 return (
@@ -129,8 +135,7 @@ const Cart = ({ menuCartRef }) => {
                         </button>
                       </form>
                     </footer>
-                  </article>
-                )
+                  </article>)
               })}
             </article>
             <div className="checkout">

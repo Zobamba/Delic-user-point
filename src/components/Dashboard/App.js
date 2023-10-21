@@ -9,7 +9,7 @@ import MenuCart from './MenuCart';
 import Footer from './Footer';
 import IconTop from './IconTop';
 import Checkout from './Checkout';
-import SignIn from './SignIn';
+import MatchEmail from './MatchEmail';
 import './App.scss';
 
 const App = () => {
@@ -33,7 +33,7 @@ const App = () => {
         <Footer footerRef={footerRef} />
       </>} />
       <Route path="/checkout" element={<Checkout />} />
-      <Route path="/sign-in" element={<SignIn />} />
+      <Route path="/sign-in" element={<MatchEmail />} />
     </Routes>
   );
 };

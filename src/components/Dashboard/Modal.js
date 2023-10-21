@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import CartContext from '../../context/CartContext';
+import UserContext from '../../context/UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import './Modal.scss';
 
 const Modal = ({ setModalOpen, selectedMeal }) => {
-  const value = useContext(CartContext);
+  const value = useContext(UserContext);
   const setMealIds = value.setMealIds;
   const setCartItems = value.setMealsInCart;
 

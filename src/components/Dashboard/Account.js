@@ -9,7 +9,7 @@ const Account = () => {
   const name = localStorage.getItem("firstName");
 
   const logout = () => {
-    let keysToRemove = ["token", "firstName"];
+    let keysToRemove = ["token", "firstName", "email", "hash"];
 
     keysToRemove.forEach((k) => {
       localStorage.removeItem(k)
