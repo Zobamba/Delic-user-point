@@ -5,7 +5,7 @@ import { faAngleDown, faAngleUp, faCartShopping } from '@fortawesome/free-solid-
 import { faUserCircle } from '@fortawesome/free-regular-svg-icons';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import CartContext from '../../context/CartContext';
+import UserContext from '../../context/UserContext';
 import Cart from './Cart';
 import Account from './Account';
 import { ReactComponent as Slider } from '../../assets/slider.svg';
@@ -18,16 +18,25 @@ const Header = ({
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [accountIsOpen, setAccountIsOpen] = useState(false);
 
-  const value = useContext(CartContext);
+  const name = localStorage.getItem("firstName");
+
+  const value = useContext(UserContext);
+  const setShowPasswordField = value.setShowPasswordField;
+
   const cartItems = value.mealsInCart;
   const setCartItems = value.setMealsInCart;
 
-  const name = localStorage.getItem("firstName");
+  let quantity = 0;
+
+  cartItems.forEach((item) => {
+    quantity = (item.units) + quantity;
+  });
 
   useEffect(() => {
     const itemsInCart = JSON.parse(localStorage.getItem("cartItems") || '[]');
 
     setCartItems(itemsInCart);
+    setShowPasswordField(false);
   }, [])
 
   const handleScroll = (ref) => {
@@ -79,7 +88,7 @@ const Header = ({
                       <FontAwesomeIcon className="arw" icon={faAngleUp} />}
                     {cartItems.length != 0 &&
                       <div className="badge">
-                        <span className="bg">{cartItems.length}</span>
+                        <span className="bg">{quantity}</span>
                       </div>}</a>
                   </li>
                 </ul>
@@ -123,7 +132,7 @@ const Header = ({
           <div className="a-slide slide2">
             <div className="container">
               <div className="bottom-section">
-                <h1 className="header-txt">Delic! Feeding you anywhere you choose.</h1>
+                <h1 className="header-txt">We have the best delicacies at Delic!.</h1>
                 <div className="divider">
                   <Slider />
                 </div>
@@ -134,7 +143,7 @@ const Header = ({
       </Carousel>
     </header>
   );
-};
+}
 
 Header.propTypes = {
   specialsRef: PropTypes.object.isRequired,

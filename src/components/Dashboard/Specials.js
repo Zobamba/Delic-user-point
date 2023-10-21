@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import axios from '../../api/axios';
-import CartContext from '../../context/CartContext';
+import UserContext from '../../context/UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as Slider } from '../../assets/slider.svg';
@@ -12,7 +12,7 @@ import './Specials.scss';
 const Specials = ({ specialsRef }) => {
   const [specials, setSpecials] = useState();
 
-  const value = useContext(CartContext);
+  const value = useContext(UserContext);
   const setMealIds = value.setMealIds;
   const setCartItems = value.setMealsInCart;
 

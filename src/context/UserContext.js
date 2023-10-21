@@ -2,22 +2,24 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { createContext, useState } from "react";
 
-const CartContext = createContext({});
+const UserContext = createContext({});
 
-export const CartProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
+  const [showPasswordField, setShowPasswordField] = useState(false);
   const [mealsInCart, setMealsInCart] = useState([]);
   const [mealIds, setMealIds] = useState([]);
   const [auth, setAuth] = useState({});
 
   return (
-    <CartContext.Provider value={{
+    <UserContext.Provider value={{
+      showPasswordField, setShowPasswordField,
       mealsInCart, setMealsInCart,
       mealIds, setMealIds,
       auth, setAuth,
     }}>
       {children}
-    </CartContext.Provider>
+    </UserContext.Provider>
   )
 }
 
-export default CartContext;
+export default UserContext;

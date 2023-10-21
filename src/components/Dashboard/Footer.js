@@ -27,7 +27,7 @@ const Footer = ({ footerRef }) => (
           <div className="reservations">
             <h3>Reservations</h3>
             <p>
-              reservations@delic.com
+              delic@gmail.com
               <br />
               +234 81-6473-8466
             </p>

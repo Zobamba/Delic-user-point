@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import CartContext from '../../context/CartContext';
+import UserContext from '../../context/UserContext';
 import './RemoveModal.scss';
 
 const RemoveModal = ({ setModalOpen, item }) => {
-  const value = useContext(CartContext);
+  const value = useContext(UserContext);
   const setMealIds = value.setMealIds;
   const setCartItems = value.setMealsInCart;
 
@@ -51,7 +51,7 @@ const RemoveModal = ({ setModalOpen, item }) => {
 
 RemoveModal.propTypes = {
   setModalOpen: PropTypes.func.isRequired,
-  item: PropTypes.number.isRequired,
+  item: PropTypes.object.isRequired,
 };
 
 export default RemoveModal
