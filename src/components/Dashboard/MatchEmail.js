@@ -121,8 +121,7 @@ const MatchEmail = () => {
                 />
                 <label
                   htmlFor="email"
-                  className="email-input-label"
-                >
+                  className="email-input-label">
                   Email
                 </label>
                 <button
@@ -137,7 +136,7 @@ const MatchEmail = () => {
               <LoginSocialFacebook
                 className="s-lgn"
                 autoLoad={true}
-                fieldsProfile="name,email,picture"
+                fieldsProfile="name, email, picture"
                 appId={process.env.REACT_APP_FACEBOOK_APP_ID}
                 onResolve={(response) => {
                   authLogin(response?.data?.email, response?.data?.name.split(" ")[0], response?.data?.name.split(" ")[1]);
@@ -157,6 +156,7 @@ const MatchEmail = () => {
                 client_id={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                 scope="email"
                 onResolve={(response) => {
+                  console.log(response);
                   authLogin(response?.data?.email, response?.data?.given_name, response?.data?.family_name);
                 }}
 

@@ -9,10 +9,8 @@
     min-width: 25%;
     width: 25%;
     height: 250px;
-    padding-left: 8px;
-    padding-right: 8px;
     float: right;
-    margin-right: 45px;
+    margin-right: 48px;
 
     .sgn {
       font-size: 0;
@@ -54,9 +52,11 @@
       .card {
         background-color: #fff;
         border-radius: 4px;
-        display: block;
+        align-items: center;
+        justify-content: center;
 
         .list {
+          margin: 0;
           list-style: none;
 
           li {
@@ -67,7 +67,6 @@
               box-shadow: none;
               color: #344767;
               font-weight: 600;
-              border-radius: 0.5rem;
             }
 
             .icon {

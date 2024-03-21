@@ -5,6 +5,7 @@
     padding-left: 0.625rem;
     max-width: 75rem;
     margin: 0 auto;
+    cursor: default;
 
     @media print, screen and (min-width: 40em) {
       padding-right: 0.9375rem;
@@ -520,6 +521,10 @@
             @media print, screen and (min-width: 40em) {
               font-size: 1.875rem;
             }
+
+            span {
+              color: #f6c710;
+            }
           }
 
           .divider {
@@ -539,17 +544,17 @@
         }
       }
     }
-  }
 
-  .slide1 {
-    background: url(../../assets/img/hero01.png) no-repeat;
-    background-size: cover;
-    background-position: 20% 0%;
-  }
-
-  .slide2 {
-    background: url(../../assets/img/hero02.png) no-repeat;
-    background-size: cover;
-    background-position: 0% 0%;
+    .slide1 {
+      background: url(../../assets/img/hero01.png) no-repeat;
+      background-size: cover;
+      background-position: 20% 0%;
+    }
+  
+    .slide2 {
+      background: url(../../assets/img/hero02.png) no-repeat;
+      background-size: cover;
+      background-position: 0% 0%;
+    }
   }
 }

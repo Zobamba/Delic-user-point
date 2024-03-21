@@ -88,7 +88,7 @@ const Cart = ({ menuCartRef }) => {
           <div className="cart-items">
             <article className="atc">
               <header>
-                <h2>Cart ({quantity})</h2>
+                <h2>Cart ({cartItems.length})</h2>
               </header>
               {cartItems.map((item, i) => {
                 return (

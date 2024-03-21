@@ -67,6 +67,10 @@ const MenuCart = ({ menuCartRef }) => {
     getSwallows();
   }, []);
 
+  const handleOpenModal = () => {
+    document.body.classList.add('modal-open');
+  };
+
   return (
     <section className="menu-cart scroll-reveal" ref={menuCartRef}>
       <div className="container">
@@ -146,7 +150,7 @@ const MenuCart = ({ menuCartRef }) => {
                         src={starter.imageUrl}
                         alt={starter.name}
                         onClick={() => {
-                          setModalOpen(starter);
+                          setModalOpen(starter); handleOpenModal();
                         }} />
                     </div>
                     <div className="menu-section">
@@ -165,7 +169,7 @@ const MenuCart = ({ menuCartRef }) => {
                               <br />
                               <button
                                 onClick={() => {
-                                  setModalOpen(starter);
+                                  setModalOpen(starter); handleOpenModal();
                                 }}
                               >
                                 Open
@@ -192,7 +196,7 @@ const MenuCart = ({ menuCartRef }) => {
                         src={mainDish.imageUrl}
                         alt={mainDish.name}
                         onClick={() => {
-                          setModalOpen(mainDish);
+                          setModalOpen(mainDish); handleOpenModal();
                         }} />
                     </div>
                     <div className="menu-section">
@@ -211,7 +215,7 @@ const MenuCart = ({ menuCartRef }) => {
                               <br />
                               <button
                                 onClick={() => {
-                                  setModalOpen(mainDish);
+                                  setModalOpen(mainDish); handleOpenModal();
                                 }}
                               >
                                 Open
@@ -238,7 +242,7 @@ const MenuCart = ({ menuCartRef }) => {
                         src={swallow.imageUrl}
                         alt={swallow.name}
                         onClick={() => {
-                          setModalOpen(swallow);
+                          setModalOpen(swallow); handleOpenModal();
                         }} />
                     </div>
                     <div className="menu-section">
@@ -257,7 +261,7 @@ const MenuCart = ({ menuCartRef }) => {
                               <br />
                               <button
                                 onClick={() => {
-                                  setModalOpen(swallow);
+                                  setModalOpen(swallow); handleOpenModal();
                                 }}
                               >
                                 Open
@@ -284,7 +288,7 @@ const MenuCart = ({ menuCartRef }) => {
                         src={dessert.imageUrl}
                         alt={dessert.name}
                         onClick={() => {
-                          setModalOpen(dessert);
+                          setModalOpen(dessert); handleOpenModal();
                         }} />
                     </div>
                     <div className="menu-section">
@@ -303,7 +307,7 @@ const MenuCart = ({ menuCartRef }) => {
                               <br />
                               <button
                                 onClick={() => {
-                                  setModalOpen(dessert);
+                                  setModalOpen(dessert); handleOpenModal();
                                 }}
                               >
                                 Open
@@ -330,7 +334,7 @@ const MenuCart = ({ menuCartRef }) => {
                         src={drink.imageUrl}
                         alt={drink.name}
                         onClick={() => {
-                          setModalOpen(drink);
+                          setModalOpen(drink); handleOpenModal();
                         }} />
                     </div>
                     <div className="menu-section">
@@ -349,7 +353,7 @@ const MenuCart = ({ menuCartRef }) => {
                               <br />
                               <button
                                 onClick={() => {
-                                  setModalOpen(drink);
+                                  setModalOpen(drink); handleOpenModal();
                                 }}
                               >
                                 Open

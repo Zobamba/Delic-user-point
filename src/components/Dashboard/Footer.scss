@@ -1,8 +1,9 @@
 .ftr {
   padding: 3.125rem 0 0 0;
-  background: url("../../assets/img/contact-bg.png") no-repeat;
+  background: url("../../assets/img/hero-bg1.jpeg") no-repeat;
   background-position: 60% 0%;
   background-size: cover;
+  box-shadow: inset 0px 9px 19px -9px rgb(176 145 9 / 62%);
 
   @media print, screen and (min-width: 40em) {
     background-position: right center;
@@ -238,7 +239,8 @@
         &:before {
           content: "";
           position: absolute;
-          background: #3c3c3c;
+          background: #f6c710;
+          opacity: 0.4;
           top: 0;
           left: 0;
           right: 0;

@@ -40,7 +40,7 @@ const RemoveModal = ({ setModalOpen, item }) => {
               className="btn"
               onClick={() => { handleRemoveClick(item.id); setModalOpen(false); }}>
               <FontAwesomeIcon className="trash" icon={faTrashCan} />
-              Remove item
+              Remove Meal
             </button>
           </div>
         </div>

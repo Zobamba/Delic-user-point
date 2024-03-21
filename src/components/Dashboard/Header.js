@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp, faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { faUserCircle } from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import UserContext from '../../context/UserContext';
@@ -70,14 +70,14 @@ const Header = ({
                   {!name ?
                     <li><a className={`${accountIsOpen ? 'm-active' : 'm-anim'}`}
                       onClick={() => { setAccountIsOpen(!accountIsOpen); setCartIsOpen(false); }} data-text="Account">
-                      <FontAwesomeIcon className="icon" icon={faUserCircle} />
+                      <FontAwesomeIcon className="icon" icon={faUser} />
                       Account {!accountIsOpen ? <FontAwesomeIcon className="arw" icon={faAngleDown} /> :
                         <FontAwesomeIcon className="arw" icon={faAngleUp} />}</a>
                     </li>
                     :
                     <li><a className={`${accountIsOpen ? 'm-active' : 'm-anim'}`}
                       onClick={() => { setAccountIsOpen(!accountIsOpen); setCartIsOpen(false); }} data-text="Account">
-                      <FontAwesomeIcon className="icon" icon={faUserCircle} />
+                      <FontAwesomeIcon className="icon" icon={faUser} />
                       Hi, {name} {!accountIsOpen ? <FontAwesomeIcon className="arw" icon={faAngleDown} /> :
                         <FontAwesomeIcon className="arw" icon={faAngleUp} />}</a>
                     </li>}
@@ -119,11 +119,13 @@ const Header = ({
           <div className="a-slide slide1">
             <div className="container">
               <div className="bottom-section scroll-reveal" data-origin="right" data-distance="20%">
-                <h1 className="header-txt">Life is dull without good food. Eat Good. Feel Good.</h1>
+                {/* <h1 className="header-txt">Fastest online food delivery service</h1> */}
+                <h1 className="header-txt">
+                  Fastest <span>online</span> food <span>delivery</span> service
+                </h1>
                 <div className="divider">
                   <Slider />
                 </div>
-
               </div>
             </div>
           </div>
@@ -132,7 +134,9 @@ const Header = ({
           <div className="a-slide slide2">
             <div className="container">
               <div className="bottom-section">
-                <h1 className="header-txt">We have the best delicacies at Delic!.</h1>
+                <h1 className="header-txt">
+                  We have the <span>best</span> delicacies at Delic
+                </h1>
                 <div className="divider">
                   <Slider />
                 </div>

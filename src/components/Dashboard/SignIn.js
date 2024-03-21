@@ -120,8 +120,7 @@ const SignIn = ({ email }) => {
               />
               <label
                 htmlFor="password"
-                className="pwd-input-label"
-              >
+                className="pwd-input-label">
                 Password
               </label>
               <img

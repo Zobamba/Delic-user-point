@@ -32,7 +32,7 @@ const Checkout = () => {
   const createOrder = async (paymentReference) => {
     const meals = cartItems.map(item => { return { mealId: item.id, units: parseInt(item.units) } });
 
-    const payload = { address, paymentReference, phoneNumber, meals };
+    const payload = { address, paymentReference, phoneNumber, meals, status: 'pending' };
     console.log(payload);
 
     try {

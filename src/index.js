@@ -7,11 +7,5 @@ import App from './components/Dashboard/App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // Removed <React.StrictMode> </ React.StrictMode> to allow single render at users
-  <BrowserRouter>
-    <UserProvider>
-      <Routes>
-        <Route path="/*" element={<App />} />
-      </Routes>
-    </UserProvider>
-  </BrowserRouter>
+ x
 );

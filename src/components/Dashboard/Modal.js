@@ -42,13 +42,17 @@ const Modal = ({ setModalOpen, selectedMeal }) => {
     localStorage.setItem('mealIds', JSON.stringify(newMealIds))
   };
 
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    document.body.classList.remove('modal-open');
+  };
+
   return (
-    <div className="modal-container">
+    <div className="modal-container" onClick={() => { setModalOpen(); handleCloseModal(); }}>
       <div className="modal">
         <button
           className="close-btn"
-          onClick={() => { setModalOpen(); }}
-          >
+          onClick={() => { setModalOpen(); handleCloseModal(); }}>
           <span>&times;</span>
         </button>
 

@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import { ReactComponent as Slider } from '../../assets/slider.svg';
 import { ReactComponent as Insta } from '../../assets/insta.svg';
 import { ReactComponent as Fb } from '../../assets/fb.svg';
@@ -43,15 +43,19 @@ const Footer = ({ footerRef }) => (
           </form>
         </div>
         <div className="social-icons scroll-reveal" data-duration="1500">
-          <div className="fb-i">
-            <Fb />
+        <div className="fb-i">
+            <Link to="">
+              <Fb />
+            </Link>
           </div>
           <div className="insta-i">
-            <Insta />
+            <Link to="">
+              <Insta />
+            </Link>
           </div>
         </div>
       </div>
-      <p className="copy-info">Copyright 2023 © by Onah Zoba</p>
+      <p className="copy-info">Copyright © 2024 Delic, Inc. All rights reserved.</p>
     </div>
   </footer>
 );

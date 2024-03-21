@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useRef } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header';
@@ -10,6 +9,7 @@ import Footer from './Footer';
 import IconTop from './IconTop';
 import Checkout from './Checkout';
 import MatchEmail from './MatchEmail';
+import Profile from './Profile';
 import './App.scss';
 
 const App = () => {
@@ -20,20 +20,23 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<>
-        <Header
-          specialsRef={specialsRef} aboutRef={aboutRef}
-          menuCartRef={menuCartRef} footerRef={footerRef}
-        />
-        <CategoryIcons />
-        <Specials specialsRef={specialsRef} />
-        <MenuCart menuCartRef={menuCartRef} />
-        <About aboutRef={aboutRef} />
-        <IconTop />
-        <Footer footerRef={footerRef} />
-      </>} />
+      <Route path="/"
+        element={<>
+          <Header
+            specialsRef={specialsRef} aboutRef={aboutRef}
+            menuCartRef={menuCartRef} footerRef={footerRef}
+          />
+          <CategoryIcons />
+          <Specials specialsRef={specialsRef} />
+          <MenuCart menuCartRef={menuCartRef} />
+          <About aboutRef={aboutRef} />
+          <IconTop />
+          <Footer footerRef={footerRef} />
+        </>}
+      />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/sign-in" element={<MatchEmail />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 };
