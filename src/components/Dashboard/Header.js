@@ -20,20 +20,27 @@ const Header = ({ specialsRef, aboutRef, menuCartRef, footerRef }) => {
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [accountIsOpen, setAccountIsOpen] = useState(false);
   const [touchStartY, setTouchStartY] = useState(0);
-  const [touchEndY, setTouchEndY] = useState(0);
+  const [touchMoveY, setTouchMoveY] = useState(0);
+  const [isVerticalScroll, setIsVerticalScroll] = useState(false);
 
   const handleTouchStart = (e) => {
     setTouchStartY(e.touches[0].clientY);
+    setIsVerticalScroll(false); // Reset on new touch
   };
 
   const handleTouchMove = (e) => {
-    setTouchEndY(e.touches[0].clientY);
+    setTouchMoveY(e.touches[0].clientY);
+    const deltaY = Math.abs(touchMoveY - touchStartY);
+    const deltaX = Math.abs(e.touches[0].clientX - e.touches[0].clientX);
+
+    if (deltaY > deltaX) {
+      setIsVerticalScroll(true); // If vertical movement is greater, allow scrolling
+    }
   };
 
   const handleTouchEnd = (e) => {
-    const verticalSwipeDistance = Math.abs(touchEndY - touchStartY);
-    if (verticalSwipeDistance > 10) {
-      e.stopPropagation();
+    if (isVerticalScroll) {
+      e.stopPropagation(); // Prevent carousel from capturing vertical scroll
     }
   };
 
@@ -217,6 +224,7 @@ const Header = ({ specialsRef, aboutRef, menuCartRef, footerRef }) => {
         showStatus={false}
         cssEase="linear"
         showThumbs={false}
+        swipeable={!isVerticalScroll}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
