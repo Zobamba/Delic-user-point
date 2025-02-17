@@ -115,7 +115,7 @@ const Header = ({
         cssEase="linear"
         showThumbs={false}
         swipeable={false}
-        swipeScrollTolerance={true}
+        scrollTo={0}
       >
         <div className="slider" onClick={() => { setCartIsOpen(false); setAccountIsOpen(false) }}>
           <div className="a-slide slide1">
