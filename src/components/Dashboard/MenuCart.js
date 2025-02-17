@@ -172,7 +172,7 @@ const MenuCart = ({ menuCartRef }) => {
                                   setModalOpen(starter); handleOpenModal();
                                 }}
                               >
-                                Open
+                                details
                               </button>
                             </td>
                           </tr>
